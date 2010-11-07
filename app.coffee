@@ -8,12 +8,12 @@ App.main = ->
     else if $.url.param('q')
       $.url.param('q')
     else
-      '[]'
+      '■'
 
   $('#magic').html(theSymbol)
   symbolSize = [$('#magic').width(), $('#magic').height()]
-  tile = [(Math.floor(window.innerWidth-symbolSize[0]-100) / symbolSize[0]),
-          (Math.floor(window.innerHeight-symbolSize[1]-100) / symbolSize[1])]
+  tile = [(Math.floor(window.innerWidth-symbolSize[0]-25) / symbolSize[0]),
+          (Math.floor(window.innerHeight-symbolSize[1]-25) / symbolSize[1])]
 
   $('#main').empty().hide()
   for y in [0..tile[1]]
