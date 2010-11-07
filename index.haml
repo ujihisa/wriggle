@@ -3,7 +3,10 @@
   %head
     - %w[./jquery-1.4.3.min.js ./sprintf103.js ./jquery.url.min.js ./app.js].each do |f|
       %script{:type => 'text/javascript', :src => f}
+    %meta{:"http-equiv" => 'Content-Type', :content => "text/html; charset=utf-8"}
   %body
+    #magic{:style => "display: none"}
+      foobar
     #main
       loading...
 
