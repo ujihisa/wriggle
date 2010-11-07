@@ -1,26 +1,8 @@
-#class App
-App = {}
-
-App.main = ->
-  theSymbol =
-    if $.url.param('img')
-      $.sprintf('<img src="%s" />', $.url.param 'img')
-    else if $.url.param('q')
-      $.url.param('q')
-    else
-      '□'
-
+$(document).ready ->
   $('#main').empty().hide()
   for y in [0...15]
     for x in [0...20]
-      tmp = $.sprintf '<span id="box%d%d">%s</span>', y, x, theSymbol
-      $('#main').append tmp
-      $($.sprintf('#box%d%d', y, x)).mouseover ->
-        App.dive($(this))
+      $('#main').append $.sprintf '<span id="box%d%d">%s</span>', y, x, if $.url.param('img') then $.sprintf('<img src="%s" />', $.url.param 'img') else if $.url.param('q') then $.url.param('q') else '□'
+      $($.sprintf('#box%d%d', y, x)).mouseover -> $(this).hide('slow').show('slow')
     $('#main').append '<br />'
   $('#main').show 'slow'
-
-App.dive = (x) ->
-  x.hide('slow').show('slow')
-
-$(document).ready App.main
